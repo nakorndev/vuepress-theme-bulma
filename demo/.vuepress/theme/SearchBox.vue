@@ -163,7 +163,7 @@ export default {
     background #fff
     width 20rem
     position absolute
-    top 1.5rem
+    top 2.5rem
     border 1px solid darken($borderColor, 10%)
     border-radius 6px
     padding 0.4rem

@@ -5,6 +5,7 @@ module.exports = {
     lineNumbers: true
   },
   themeConfig: {
+    logo: 'https://vuepress.vuejs.org/hero.png',
     nav: [
       { text: 'Lorem', link: '/lorem/article' },
       { text: 'VuePress', link: 'https://vuepress.vuejs.org/' }

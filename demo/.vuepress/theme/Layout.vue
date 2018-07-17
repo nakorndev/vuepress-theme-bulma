@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-container"
+  <section
     :class="pageClasses"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd">
@@ -18,7 +18,7 @@
       <slot name="page-bottom" slot="bottom"/>
     </Page>
     <SWUpdatePopup :updateEvent="swUpdateEvent" />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -137,5 +137,10 @@ export default {
 }
 </script>
 
-<style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.styl" lang="stylus"></style>
+<style src="bulma/bulma.sass" lang="scss"></style>
+<style lang="scss">
+.navbar .navbar-item .icon.outbound {
+  margin-left: 5px;
+  width: 1.2em;
+}
+</style>
