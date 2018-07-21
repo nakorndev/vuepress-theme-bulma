@@ -7,7 +7,7 @@ module.exports = {
   themeConfig: {
     logo: 'https://vuepress.vuejs.org/hero.png',
     nav: [
-      { text: 'Lorem', link: '/lorem/article' },
+      { text: 'Lorem', link: '/lorem/' },
       { text: 'VuePress', link: 'https://vuepress.vuejs.org/' }
     ],
     displayAllHeaders: true,
@@ -18,6 +18,7 @@ module.exports = {
           title: 'Lorem',
           collapsable: true,
           children: [
+            '',
             'article',
             'frontmatter',
             'table',

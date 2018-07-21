@@ -140,4 +140,9 @@ export default {
 header.navbar {
   position: fixed;
 }
+.navbar-brand .router-link-exact-active.router-link-active,
+.navbar-start .router-link-active {
+  border-radius: 4px;
+  background-color: #fafafa;
+}
 </style>

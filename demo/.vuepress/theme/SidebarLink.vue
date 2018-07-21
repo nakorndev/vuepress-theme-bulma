@@ -76,6 +76,7 @@ a.sidebar-link
     color $accentColor
   &.active
     font-weight 600
+    background-color whitesmoke
   .sidebar-sub-headers &
     border-left none
     &.active
