@@ -31,8 +31,6 @@ export default {
 .sidebar-group
   &:not(.first)
     margin-top 1em
-  .sidebar-group
-    padding-left 0.5em
   &:not(.collapsable)
     .sidebar-heading
       cursor auto
@@ -47,7 +45,7 @@ export default {
   // text-transform uppercase
   padding 0 1.5rem
   margin-top 0
-  margin-bottom 0.5rem
+  margin-bottom: 1.2rem
   &.open, &:hover
     color inherit
   .arrow
@@ -60,4 +58,8 @@ export default {
 .sidebar-group-items
   transition height .1s ease-out
   overflow hidden
+  margin-left: 26px !important
+
+.sidebar-sub-headers
+  margin-left: 17px !important
 </style>

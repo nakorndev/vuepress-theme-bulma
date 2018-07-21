@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar has-shadow is-spaced">
+  <header class="navbar has-shadow is-spaced is-fixed-top">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <div class="navbar-brand">
       <router-link :to="$localePath" class="navbar-item">
@@ -136,5 +136,8 @@ export default {
 <style lang="scss">
 .logo {
   margin-right: 5px;
+}
+header.navbar {
+  position: fixed;
 }
 </style>

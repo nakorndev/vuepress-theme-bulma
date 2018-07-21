@@ -23,7 +23,8 @@ module.exports = {
             'table',
             'emoji',
             'custom-containers',
-            'code-blocks'
+            'code-blocks',
+            'other-markdown'
           ]
         }
       ]

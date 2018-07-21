@@ -5,19 +5,21 @@
     @touchend="onTouchEnd">
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+    <SWUpdatePopup :updateEvent="swUpdateEvent" />
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
-    <div class="custom-layout" v-if="$page.frontmatter.layout">
-      <component :is="$page.frontmatter.layout"/>
-    </div>
-    <Home v-else-if="$page.frontmatter.home"/>
-    <Page v-else :sidebar-items="sidebarItems">
-      <slot name="page-top" slot="top"/>
-      <slot name="page-bottom" slot="bottom"/>
-    </Page>
-    <SWUpdatePopup :updateEvent="swUpdateEvent" />
+    <main class="section">
+      <div class="custom-layout" v-if="$page.frontmatter.layout">
+        <component :is="$page.frontmatter.layout"/>
+      </div>
+      <Home v-else-if="$page.frontmatter.home"/>
+      <Page v-else :sidebar-items="sidebarItems">
+        <slot name="page-top" slot="top"/>
+        <slot name="page-bottom" slot="bottom"/>
+      </Page>
+    </main>
   </section>
 </template>
 
@@ -137,10 +139,10 @@ export default {
 }
 </script>
 
-<style src="bulma/bulma.sass" lang="scss"></style>
 <style lang="scss">
 .navbar .navbar-item .icon.outbound {
   margin-left: 5px;
   width: 1.2em;
 }
 </style>
+<style src="bulma/bulma.sass" lang="scss"></style>

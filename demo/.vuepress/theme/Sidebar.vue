@@ -1,8 +1,8 @@
 <template>
-  <div class="sidebar">
+  <div class="menu is-hidden-touch">
     <NavLinks/>
     <slot name="top"/>
-    <ul class="sidebar-links" v-if="items.length">
+    <ul class="menu-list" v-if="items.length">
       <li v-for="(item, i) in items" :key="i">
         <SidebarGroup v-if="item.type === 'group'"
           :item="item"
@@ -69,36 +69,19 @@ function resolveOpenGroupIndex (route, items) {
 }
 </script>
 
-<style lang="stylus">
-@import './styles/config.styl'
-
-.sidebar
-  ul
-    padding 0
-    margin 0
-    list-style-type none
-  a
-    display inline-block
-  .nav-links
-    display none
-    border-bottom 1px solid $borderColor
-    padding 0.5rem 0 0.75rem 0
-    a
-      font-weight 600
-    .nav-item, .repo-link
-      display block
-      line-height 1.25rem
-      font-size 1.1em
-      padding 0.5rem 0 0.5rem 1.5rem
-  .sidebar-links
-    padding 1.5rem 0
-
-@media (max-width: $MQMobile)
-  .sidebar
-    .nav-links
-      display block
-      .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after
-        top calc(1rem - 2px)
-    .sidebar-links
-      padding 1rem 0
+<style lang="scss">
+.menu {
+  font-size: 15px;
+  background-color: #fff;
+  width: 20rem;
+  position: fixed;
+  z-index: 10;
+  margin: 0;
+  top: 4.6rem;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-right: 1px solid #eaecef;
+  overflow-y: auto;
+}
 </style>
