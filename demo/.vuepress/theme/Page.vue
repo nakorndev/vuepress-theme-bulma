@@ -179,14 +179,28 @@ a.header-anchor {
     text-decoration: none;
   }
 }
-main .content h2 {
-  border-bottom: 1px solid $grey-lighter;
-  padding-bottom: 0.5em;
-  margin-bottom: 1em;
+main .content {
+  h2 {
+    border-bottom: 2px solid whitesmoke;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+  }
+  h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+  .footnote-ref a, a.footnote-backref {
+    padding-top: 100px;
+    margin-top: -100px;
+    display: inline-block;
+    &:focus {
+      outline: none;
+    }
+  }
 }
-</style>
-
-<style lang="stylus">
-
-
 </style>
