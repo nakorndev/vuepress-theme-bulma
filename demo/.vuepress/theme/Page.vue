@@ -163,4 +163,30 @@ function find (page, items, offset) {
     padding-left: 319px;
   }
 }
+h1, h2, h3, h4, h5, h6 {
+  &:hover .header-anchor {
+    opacity: 1
+  }
+}
+a.header-anchor {
+  font-size: 0.85em;
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  margin-top: 0.125em;
+  opacity: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+main .content h2 {
+  border-bottom: 1px solid $grey-lighter;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+</style>
+
+<style lang="stylus">
+
+
 </style>

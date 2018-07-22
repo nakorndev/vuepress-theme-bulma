@@ -76,9 +76,19 @@ a.sidebar-link
     color $accentColor
   &.active
     font-weight 600
-    background-color whitesmoke
+    background-color: #3273dc;
+    color: #fff;
   .sidebar-sub-headers &
     border-left none
     &.active
       font-weight 500
+
+.menu-list a.active.sidebar-link:hover
+  background-color #3273dc
+  color #fff
+
+.menu-list .sidebar-sub-headers a.active.sidebar-link
+  background-color transparent
+  color #4a4a4a
+  font-weight bold
 </style>

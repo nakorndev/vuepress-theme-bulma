@@ -1,4 +1,4 @@
-# Other markdown
+# markdown-it
 
 # h1 Heading 8-)
 

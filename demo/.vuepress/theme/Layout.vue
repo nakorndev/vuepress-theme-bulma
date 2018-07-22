@@ -144,5 +144,78 @@ export default {
   margin-left: 5px;
   width: 1.2em;
 }
+main.section {
+  padding-top: 8rem;
+}
+.custom-block {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-size: 1rem;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 0 0 0 4px;
+  color: #4a4a4a;
+  padding: 1.25em 1.5em;
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  &.tip {
+    border-color: #3273dc;
+    color: #22509a;
+    background-color: #f6f9fe;
+    .custom-block-title::before {
+      content: '✨ ';
+    }
+  }
+  &.warning {
+    border-color: #ffdd57;
+    color: #3b3108;
+    background-color: #fffdf5;
+    .custom-block-title::before {
+      content: '💥 ';
+    }
+  }
+  &.danger {
+    border-color: #ff3860;
+    color: #cd0930;
+    background-color: #fff5f7;
+    .custom-block-title::before {
+      content: '⛔ ';
+    }
+  }
+  .custom-block-title {
+    font-weight: bold;
+  }
+}
+// Fix class disrupt syntax hightlight
+code .number {
+  align-items: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  display: inherit;
+  font-size: inherit;
+  height: inherit;
+  justify-content: inherit;
+  margin-right: inherit;
+  min-width: inherit;
+  padding: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+}
+.content pre code {
+  font-size: 1rem;
+}
+abbr {
+  cursor: help;
+}
 </style>
 <style src="bulma/bulma.sass" lang="scss"></style>
+<style src="prismjs/themes/prism-tomorrow.css"></style>
+
+<style lang="stylus">
+@import './styles/arrow.styl'
+@import './styles/toc.styl'
+@import './styles/nprogress.styl'
+@import './styles/code.styl'
+</style>

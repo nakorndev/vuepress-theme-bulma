@@ -1,8 +1,18 @@
 module.exports = {
   title: 'vuepress-theme-bulma',
   description: 'Bulma.css theme for VuePress',
+  serviceWorker: true,
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    config: md => {
+      md.use(require('markdown-it-footnote'))
+      md.use(require('markdown-it-sub'))
+      md.use(require('markdown-it-sup'))
+      md.use(require('markdown-it-ins'))
+      md.use(require('markdown-it-mark'))
+      md.use(require('markdown-it-deflist'))
+      md.use(require('markdown-it-abbr'))
+    }
   },
   themeConfig: {
     logo: 'https://vuepress.vuejs.org/hero.png',
@@ -25,11 +35,13 @@ module.exports = {
             'emoji',
             'custom-containers',
             'code-blocks',
-            'other-markdown'
+            'markdown-it',
+            'markdown-vuepress'
           ]
         }
       ]
     },
+    displayAllHeaders: false,
     repo: 'nakorndev/vuepress-theme-bulma',
     repoLabel: 'Contribute!',
     docsRepo: 'vuejs/vuepress',
