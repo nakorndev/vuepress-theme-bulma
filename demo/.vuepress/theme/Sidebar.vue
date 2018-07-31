@@ -77,7 +77,8 @@ function resolveOpenGroupIndex (route, items) {
   position: fixed;
   z-index: 10;
   margin: 0;
-  top: 4.6rem;
+  position: fixed;
+  top: 52px;
   left: 0;
   bottom: 0;
   box-sizing: border-box;

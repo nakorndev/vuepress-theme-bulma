@@ -1,5 +1,5 @@
 <template>
-  <div class="search-box">
+  <div class="navbar-item search-box">
     <input
       @input="query = $event.target.value"
       aria-label="Search"
@@ -141,7 +141,6 @@ export default {
 .search-box
   display inline-block
   position relative
-  margin-right 0.5rem
   input
     cursor text
     width 10rem
@@ -163,7 +162,7 @@ export default {
     background #fff
     width 20rem
     position absolute
-    top 2.5rem
+    top 3rem
     border 1px solid darken($borderColor, 10%)
     border-radius 6px
     padding 0.4rem
