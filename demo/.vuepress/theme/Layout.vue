@@ -10,7 +10,7 @@
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
-    <main class="section">
+    <main>
       <div class="custom-layout" v-if="$page.frontmatter.layout">
         <component :is="$page.frontmatter.layout"/>
       </div>

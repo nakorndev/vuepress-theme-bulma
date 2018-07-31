@@ -51,6 +51,7 @@ module.exports = {
     docsDir: 'demo',
     docsBranch: 'master',
     editLinks: true,
-    editLinkText: 'Edit me!'
+    editLinkText: 'Edit me!',
+    lastUpdated: 'Last Updated'
   },
 }

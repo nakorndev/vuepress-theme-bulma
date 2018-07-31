@@ -83,6 +83,9 @@ a.sidebar-link
     &.active
       font-weight 500
 
+.menu-list
+  margin-bottom: 50px;
+
 .menu-list a.active.sidebar-link:hover
   background-color #3273dc
   color #fff

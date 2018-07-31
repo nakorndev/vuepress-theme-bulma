@@ -1,49 +1,52 @@
 <template>
-  <div class="container has-sidebar">
-    <slot name="top"/>
-    <div class="field" v-if="editLink" :class="{ 'has-no-frontmatter': !(hasFrontMatter) }">
-      <div class="control is-pulled-right">
-        <a class="button is-text is-none-decoration has-text-link" :href="editLink" target="_blank" rel="noopener noreferrer">
-          <span class="icon"><i class="fas fa-edit"></i></span>
-          <span>{{ editLinkText }}</span>
-        </a>
-      </div>
-    </div>
-    <section v-if="hasFrontMatter">
-      <div class="media">
-        <div class="media-left is-hidden-touch">
-          <a class="is-hoverable non-blank" :href="$page.path + '#'">
-            <span class="icon is-heading has-text-link">
-              <i :class="$page.frontmatter.icon"></i>
-            </span>
+  <section class="section">
+    <div class="container has-sidebar">
+      <slot name="top"/>
+      <div class="field" v-if="editLink" :class="{ 'has-no-frontmatter': !(hasFrontMatter) }">
+        <div class="control is-pulled-right">
+          <a class="button is-text is-none-decoration has-text-link" :href="editLink" target="_blank" rel="noopener noreferrer">
+            <span class="icon"><i class="fas fa-edit"></i></span>
+            <span>{{ editLinkText }}</span>
           </a>
         </div>
-        <div class="media-body">
-          <div class="title">
-            <a class="non-blank" v-if="!$page.frontmatter.disable_hashtag" :href="$page.path + '#'">#</a> {{ $page.frontmatter.title }}
+      </div>
+      <section v-if="hasFrontMatter">
+        <div class="media">
+          <div class="media-left is-hidden-touch">
+            <a class="is-hoverable non-blank" :href="$page.path + '#'">
+              <span class="icon is-heading has-text-link">
+                <i :class="$page.frontmatter.icon"></i>
+              </span>
+            </a>
           </div>
-          <div class="subtitle" v-html="$page.frontmatter.description"></div>
+          <div class="media-body">
+            <div class="title">
+              <a class="non-blank" v-if="!$page.frontmatter.disable_hashtag" :href="$page.path + '#'">#</a> {{ $page.frontmatter.title }}
+            </div>
+            <div class="subtitle" v-html="$page.frontmatter.description"></div>
+          </div>
         </div>
+        <hr>
+      </section>
+      <Content :custom="false"/>
+      <div class="page-nav" v-if="prev || next">
+        <router-link v-if="prev" :to="prev.path" class="button is-hidden-touch is-text is-none-decoration is-left is-pagination has-text-link" :title="prev.title || prev.path">
+          <i class="fas fa-chevron-left"></i>
+        </router-link>
+        <button v-else class="button is-hidden-touch is-text is-none-decoration is-left is-pagination has-text-link" disabled><i class="fas fa-chevron-left"></i></button>
+        <router-link v-if="next" :to="next.path" class="button is-hidden-touch is-text is-none-decoration is-right is-pagination has-text-link" :title="next.title || next.path">
+          <i class="fas fa-chevron-right"></i>
+        </router-link>
+        <button v-else class="button is-hidden-touch is-text is-none-decoration is-right is-pagination has-text-link" disabled><i class="fas fa-chevron-right"></i></button>
       </div>
       <hr>
-    </section>
-    <Content :custom="false"/>
-    <div class="page-edit">
-      <div class="last-updated" v-if="lastUpdated">
-        <span class="prefix">{{ lastUpdatedText }}: </span>
-        <span class="time">{{ lastUpdated }}</span>
+      <div class="has-text-right" v-if="lastUpdated">
+        <strong><i class="fas fa-wrench"></i> {{ lastUpdatedText }}: </strong>
+        <span>{{ lastUpdated }}</span>
       </div>
+      <slot name="bottom"/>
     </div>
-    <div class="page-nav" v-if="prev || next">
-      <router-link v-if="prev" :to="prev.path" class="button is-hidden-touch is-text is-none-decoration is-left is-pagination has-text-link" :title="prev.title || prev.path">
-        <i class="fas fa-chevron-left"></i>
-      </router-link>
-      <router-link v-if="next" :to="next.path" class="button is-hidden-touch is-text is-none-decoration is-right is-pagination has-text-link" :title="next.title || next.path">
-        <i class="fas fa-chevron-right"></i>
-      </router-link>
-    </div>
-    <slot name="bottom"/>
-  </div>
+  </section>
 </template>
 
 <script>
