@@ -3,7 +3,7 @@
     <slot name="top"/>
     <div class="field" v-if="editLink" :class="{ 'has-no-frontmatter': !(hasFrontMatter) }">
       <div class="control is-pulled-right">
-        <a class="button is-text is-none-decoration" :href="editLink" target="_blank" rel="noopener noreferrer">
+        <a class="button is-text is-none-decoration has-text-link" :href="editLink" target="_blank" rel="noopener noreferrer">
           <span class="icon"><i class="fas fa-edit"></i></span>
           <span>{{ editLinkText }}</span>
         </a>
@@ -35,18 +35,12 @@
       </div>
     </div>
     <div class="page-nav" v-if="prev || next">
-      <p class="inner">
-        <span v-if="prev" class="prev">
-          ← <router-link v-if="prev" class="prev" :to="prev.path">
-            {{ prev.title || prev.path }}
-          </router-link>
-        </span>
-        <span v-if="next" class="next">
-          <router-link v-if="next" :to="next.path">
-            {{ next.title || next.path }}
-          </router-link> →
-        </span>
-      </p>
+      <router-link v-if="prev" :to="prev.path" class="button is-hidden-touch is-text is-none-decoration is-left is-pagination has-text-link" :title="prev.title || prev.path">
+        <i class="fas fa-chevron-left"></i>
+      </router-link>
+      <router-link v-if="next" :to="next.path" class="button is-hidden-touch is-text is-none-decoration is-right is-pagination has-text-link" :title="next.title || next.path">
+        <i class="fas fa-chevron-right"></i>
+      </router-link>
     </div>
     <slot name="bottom"/>
   </div>
@@ -54,6 +48,7 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
+import tippy from 'tippy.js'
 
 export default {
   props: ['sidebarItems'],
@@ -152,6 +147,11 @@ export default {
         path
       )
     }
+  },
+  mounted () {
+    tippy('abbr[title], span[title], a[title]', {
+      arrow: true
+    })
   }
 }
 
@@ -181,6 +181,7 @@ function find (page, items, offset) {
 }
 </script>
 
+<style src="tippy.js/dist/tippy.css"></style>
 <style lang="scss">
 @import "~bulma/sass/utilities/initial-variables";
 @media screen and (min-width: $desktop) {
@@ -245,6 +246,36 @@ main .content {
     height: 1em;
     width: 1em;
     margin-left: 2px;
+  }
+  abbr {
+    text-decoration: none;
+    cursor: help;
+    border: 1px solid #d4d4d4;
+    padding: 0 5px;
+    border-radius: 4px;
+  }
+  mark {
+    background-color: #ffff06;
+    border-radius: 4px;
+    padding: 1px 10px;
+  }
+}
+.button.is-pagination {
+  position: fixed;
+  top: calc(50% - (300px / 2));
+  bottom: 0;
+  display: flex;
+  height: 300px;
+  border-radius: 5px;
+  padding: 0 .5em;
+  margin: .5em 1em;
+  align-items: center;
+  justify-content: center;
+  &.is-right {
+    right: 0
+  }
+  &.is-left {
+    left: 320px;
   }
 }
 </style>

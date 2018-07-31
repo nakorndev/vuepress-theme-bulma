@@ -201,9 +201,6 @@ code .number {
 .content pre code {
   font-size: 1rem;
 }
-abbr {
-  cursor: help;
-}
 .navbar-brand a.navbar-item:hover {
   background-color: $white-bis !important;
 }
