@@ -144,6 +144,9 @@ export default {
   margin-left: 5px;
   width: 1.2em;
 }
+.section {
+  margin-top: 3.5rem;
+}
 .custom-block {
   background-color: #f5f5f5;
   border-radius: 4px;

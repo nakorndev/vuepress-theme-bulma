@@ -1,12 +1,34 @@
 <template>
   <div class="container has-sidebar">
     <slot name="top"/>
+    <div class="field" v-if="editLink" :class="{ 'has-no-frontmatter': !(hasFrontMatter) }">
+      <div class="control is-pulled-right">
+        <a class="button is-text is-none-decoration" :href="editLink" target="_blank" rel="noopener noreferrer">
+          <span class="icon"><i class="fas fa-edit"></i></span>
+          <span>{{ editLinkText }}</span>
+        </a>
+      </div>
+    </div>
+    <section v-if="hasFrontMatter">
+      <div class="media">
+        <div class="media-left is-hidden-touch">
+          <a class="is-hoverable non-blank" :href="$page.path + '#'">
+            <span class="icon is-heading has-text-link">
+              <i :class="$page.frontmatter.icon"></i>
+            </span>
+          </a>
+        </div>
+        <div class="media-body">
+          <div class="title">
+            <a class="non-blank" :href="$page.path + '#'">#</a> {{ $page.frontmatter.title }}
+          </div>
+          <div class="subtitle" v-html="$page.frontmatter.description"></div>
+        </div>
+      </div>
+      <hr>
+    </section>
     <Content :custom="false"/>
     <div class="page-edit">
-      <div class="edit-link" v-if="editLink">
-        <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
-        <OutboundLink/>
-      </div>
       <div class="last-updated" v-if="lastUpdated">
         <span class="prefix">{{ lastUpdatedText }}: </span>
         <span class="time">{{ lastUpdated }}</span>
@@ -36,6 +58,9 @@ import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
 export default {
   props: ['sidebarItems'],
   computed: {
+    hasFrontMatter () {
+      return this.$page.frontmatter.title && this.$page.frontmatter.description && this.$page.frontmatter.icon
+    },
     lastUpdated () {
       if (this.$page.lastUpdated) {
         return new Date(this.$page.lastUpdated).toLocaleString(this.$lang)
@@ -168,6 +193,21 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1
   }
 }
+.icon.is-heading {
+  border: 2px solid #3273dc;
+  border-radius: 50%;
+  padding: 30px;
+  font-size: 2rem;
+  &:hover {
+    border-color: #363636;
+    i {
+      color: #363636;
+    }
+  }
+}
+.has-no-frontmatter a.button {
+  margin-top: 4.5rem;
+}
 a.header-anchor {
   font-size: 0.85em;
   float: left;
@@ -182,12 +222,26 @@ a.header-anchor {
 section.no-sidebar .menu {
   display: none;
 }
+.is-none-decoration {
+  text-decoration: none !important;
+}
 main .content {
-  margin-top: 3.5rem;
+  h1 {
+    margin-bottom: 1em;
+  }
   h2 {
     border-bottom: 2px solid whitesmoke;
     padding-bottom: 0.5em;
     margin-bottom: 1em;
+  }
+  &:not(.custom)>h1, &:not(.custom)>h2, &:not(.custom)>h3, &:not(.custom)>h4, &:not(.custom)>h5, &:not(.custom)>h6 {
+    margin-top: -3.5rem;
+    padding-top: 4.5rem;
+  }
+  .icon.outbound {
+    height: 1em;
+    width: 1em;
+    margin-left: 2px;
   }
 }
 </style>
