@@ -1,9 +1,19 @@
 module.exports = {
   title: 'vuepress-theme-bulma',
   description: 'Bulma.css theme for VuePress',
+  base: 'https://nakorndev.github.io/vuepress-theme-bulma/',
   head: [
     ['link', { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity: 'sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin: 'anonymous' }]
   ],
+  displayAllHeaders: false,
+  repo: 'nakorndev/vuepress-theme-bulma',
+  repoLabel: 'Contribute!',
+  docsRepo: 'vuejs/vuepress',
+  docsDir: 'demo',
+  docsBranch: 'master',
+  editLinks: true,
+  editLinkText: 'Edit me!',
+  lastUpdated: 'Last Updated',
   serviceWorker: true,
   markdown: {
     lineNumbers: true,
@@ -47,15 +57,6 @@ module.exports = {
           ]
         }
       ]
-    },
-    displayAllHeaders: false,
-    repo: 'nakorndev/vuepress-theme-bulma',
-    repoLabel: 'Contribute!',
-    docsRepo: 'vuejs/vuepress',
-    docsDir: 'demo',
-    docsBranch: 'master',
-    editLinks: true,
-    editLinkText: 'Edit me!',
-    lastUpdated: 'Last Updated'
+    }
   },
 }
