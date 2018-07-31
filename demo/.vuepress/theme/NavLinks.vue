@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar-start" v-if="userLinks.length">
-    <DropdownLink v-for="item in userLinks" :key="item.link" v-if="item.type === 'links'" :item="item"/>
     <NavLink v-for="item in userLinks" :key="item.link" v-if="item.type !== 'links'" :item="item"/>
+    <DropdownLink v-for="item in userLinks" :key="item.link" v-if="item.type === 'links'" :item="item"/>
   </nav>
 </template>
 

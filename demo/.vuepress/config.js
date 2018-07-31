@@ -21,7 +21,11 @@ module.exports = {
     logo: 'https://vuepress.vuejs.org/hero.png',
     nav: [
       { text: 'Lorem', link: '/lorem/' },
-      { text: 'VuePress', link: 'https://vuepress.vuejs.org/' }
+      { text: 'VuePress', link: 'https://vuepress.vuejs.org/' },
+      { text: 'Dropdown', items: [
+        { text: 'Google', link: 'https://www.google.com' },
+        { text: 'And google!', link: 'https://www.google.com' }
+      ] }
     ],
     displayAllHeaders: true,
     serviceWorker: true,
