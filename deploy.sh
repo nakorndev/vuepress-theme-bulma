@@ -4,7 +4,7 @@
 set -e
 
 # build
-npm run demo:build
+npm run build
 
 # navigate into the build output directory
 cd demo/.vuepress/dist
