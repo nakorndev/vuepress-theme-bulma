@@ -1,6 +1,5 @@
 <template>
-  <div class="menu is-hidden-touch">
-    <NavLinks/>
+  <div class="menu">
     <slot name="top"/>
     <ul class="menu-list" v-if="items.length">
       <li v-for="(item, i) in items" :key="i">
@@ -70,19 +69,26 @@ function resolveOpenGroupIndex (route, items) {
 </script>
 
 <style lang="scss">
-.menu {
-  font-size: 15px;
-  background-color: #fff;
-  width: 20rem;
-  position: fixed;
-  z-index: 10;
-  margin: 0;
-  position: fixed;
-  top: 52px;
-  left: 0;
-  bottom: 0;
-  box-sizing: border-box;
-  border-right: 1px solid #eaecef;
-  overflow-y: auto;
+@media screen and (min-width: 1088px) {
+  .menu {
+    font-size: 15px;
+    background-color: #fff;
+    width: 20rem;
+    position: fixed;
+    z-index: 10;
+    margin-top: 1rem;
+    position: fixed;
+    top: 52px;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-right: 1px solid #eaecef;
+    overflow-y: auto;
+  }
+}
+@media screen and (max-width: 1088px) {
+  .menu {
+    margin-top: 1rem;
+  }
 }
 </style>

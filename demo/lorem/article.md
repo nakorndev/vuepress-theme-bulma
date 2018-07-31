@@ -1,7 +1,8 @@
 ---
-title: 'Article'
-description: Saepe et molestiae quis itaque.
-icon: 'fas fa-star'
+title: 😉 Article
+description: Saepe et molestiae quis itaque. <strong>Be strong!</strong>
+icon: fas fa-star
+disable_hashtag: true
 ---
 
 [[toc]]

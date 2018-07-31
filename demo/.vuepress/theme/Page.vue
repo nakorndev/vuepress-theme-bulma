@@ -20,7 +20,7 @@
         </div>
         <div class="media-body">
           <div class="title">
-            <a class="non-blank" :href="$page.path + '#'">#</a> {{ $page.frontmatter.title }}
+            <a class="non-blank" v-if="!$page.frontmatter.disable_hashtag" :href="$page.path + '#'">#</a> {{ $page.frontmatter.title }}
           </div>
           <div class="subtitle" v-html="$page.frontmatter.description"></div>
         </div>
@@ -187,6 +187,9 @@ function find (page, items, offset) {
   .container.has-sidebar {
     padding-left: 319px;
   }
+}
+.media {
+  margin-top: 1.75rem;
 }
 h1, h2, h3, h4, h5, h6 {
   &:hover .header-anchor {

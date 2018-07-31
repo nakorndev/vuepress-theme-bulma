@@ -1,5 +1,7 @@
 ---
 title: Custom frontmatter
+description: Blah blah 😩
+icon: fas fa-dizzy
 ---
 
 # Frontmatter

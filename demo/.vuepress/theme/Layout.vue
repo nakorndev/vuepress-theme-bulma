@@ -3,10 +3,10 @@
     :class="pageClasses"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd">
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
+    <Navbar v-if="shouldShowNavbar"/>
     <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
     <SWUpdatePopup :updateEvent="swUpdateEvent" />
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+    <Sidebar :items="sidebarItems" class="is-hidden-touch">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
@@ -111,9 +111,6 @@ export default {
   },
 
   methods: {
-    toggleSidebar (to) {
-      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-    },
     // side swipe
     onTouchStart (e) {
       this.touchStart = {
@@ -140,12 +137,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~bulma/sass/utilities/initial-variables";
 .navbar .navbar-item .icon.outbound {
   margin-left: 5px;
   width: 1.2em;
-}
-.section {
-  margin-top: 3.5rem;
 }
 .custom-block {
   background-color: #f5f5f5;
@@ -208,6 +203,9 @@ code .number {
 }
 abbr {
   cursor: help;
+}
+.navbar-brand a.navbar-item:hover {
+  background-color: $white-bis !important;
 }
 </style>
 <style src="bulma/bulma.sass" lang="scss"></style>

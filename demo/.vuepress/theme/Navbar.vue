@@ -1,41 +1,49 @@
 <template>
   <header id="navbar" class="navbar has-shadow is-fixed-top">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <div class="navbar-brand">
       <router-link :to="$localePath" class="navbar-item">
         <img class="logo"
           v-if="$site.themeConfig.logo"
           :src="$withBase($site.themeConfig.logo)">
-        <span class="site-name"
-          v-if="$siteTitle"
-          :class="{ 'is-hidden-mobile': $site.themeConfig.logo }">
+        <span class="site-name" v-if="$siteTitle">
           {{ $siteTitle }}
         </span>
       </router-link>
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
-    <NavLinks class="is-hidden-mobile"/>
-    <div class="navbar-end">
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-      <SearchBox v-else-if="$site.themeConfig.search !== false"/>
-      <a v-if="isExternal(item.link)"
-        v-for="item in userLinks"
-        :key="item.link"
-        :href="link(item)"
-        class="navbar-item external"
-        :target="isMailto(link(item)) || isTel(link(item)) ? null : '_blank'"
-        :rel="isMailto(link(item)) || isTel(link(item)) ? null : 'noopener noreferrer'"
-      >
-        {{ item.text }}
-        <OutboundLink/>
-      </a>
-      <a v-if="repoLink"
-        :href="repoLink"
-        class="navbar-item"
-        target="_blank"
-        rel="noopener noreferrer">
-        {{ repoLabel }}
-        <OutboundLink/>
-      </a>
+    <div class="navbar-menu" id="navMenu">
+      <NavLinks/>
+      <Sidebar :items="sidebarItems">
+        <slot name="sidebar-top" slot="top"/>
+        <slot name="sidebar-bottom" slot="bottom"/>
+      </Sidebar>
+      <div class="navbar-end">
+        <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
+        <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+        <a v-if="isExternal(item.link)"
+          v-for="item in userLinks"
+          :key="item.link"
+          :href="link(item)"
+          class="navbar-item external"
+          :target="isMailto(link(item)) || isTel(link(item)) ? null : '_blank'"
+          :rel="isMailto(link(item)) || isTel(link(item)) ? null : 'noopener noreferrer'"
+        >
+          {{ item.text }}
+          <OutboundLink/>
+        </a>
+        <a v-if="repoLink"
+          :href="repoLink"
+          class="navbar-item"
+          target="_blank"
+          rel="noopener noreferrer">
+          {{ repoLabel }}
+          <OutboundLink/>
+        </a>
+      </div>
     </div>
   </header>
 </template>
@@ -44,11 +52,12 @@
 import SidebarButton from './SidebarButton.vue'
 import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from './SearchBox.vue'
+import Sidebar from './Sidebar.vue'
 import NavLinks from './NavLinks.vue'
-import { isExternal, isMailto, isTel, ensureExt, resolveNavLinkItem } from './util'
+import { isExternal, isMailto, isTel, ensureExt, resolveNavLinkItem, resolveSidebarItems } from './util'
 
 export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, Sidebar },
   computed: {
     algolia () {
       return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
@@ -120,7 +129,15 @@ export default {
           items: (link.items || []).map(resolveNavLinkItem)
         })
       })
-    }
+    },
+    sidebarItems () {
+      return resolveSidebarItems(
+        this.$page,
+        this.$route,
+        this.$site,
+        this.$localePath
+      )
+    },
   },
   methods: {
     link (item) {
@@ -129,6 +146,19 @@ export default {
     isExternal,
     isMailto,
     isTel
+  },
+  mounted () {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
   }
 }
 </script>
