@@ -6,6 +6,11 @@
     "dev": "vuepress dev demo",
     "build": "vuepress build demo"
   },
+  "keywords": [
+    "vuepress",
+    "theme",
+    "vuepress-theme"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nakorndev/vuepress-theme-bulma.git"
