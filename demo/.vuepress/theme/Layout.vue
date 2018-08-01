@@ -140,7 +140,7 @@ export default {
       this.swUpdateEvent = e
     },
     initTippy () {
-      const selector = document.querySelectorAll('abbr[title], a[title]:not(.is-pagination), span[title]')
+      const selector = document.querySelectorAll('abbr[title], a[title]:not(.is-pagination), span[title], img[title]')
       const paginationLeft = document.querySelector('.is-left.is-pagination')
       const paginationRight = document.querySelector('.is-right.is-pagination')
       if (!paginationLeft._tippy && !paginationRight._tippy) {

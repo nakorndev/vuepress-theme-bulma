@@ -156,6 +156,7 @@ export default {
           const $target = document.getElementById(target);
           el.classList.toggle('is-active');
           $target.classList.toggle('is-active');
+          document.getElementsByTagName('html')[0].classList.toggle('is-clipped is-blackdrop')
         });
       });
     }

@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section id="content" class="section">
     <div class="container has-sidebar">
       <slot name="top"/>
       <div class="field" v-if="editLink" :class="{ 'has-no-frontmatter': !(hasFrontMatter) }">
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
+import { resolvePage, normalize, outboundRE, endingSlashRE, createElementFromHTML } from './util'
 
 export default {
   props: ['sidebarItems'],
@@ -149,6 +149,27 @@ export default {
         path
       )
     }
+  },
+  mounted () {
+    Array.from(document.getElementById('content').getElementsByTagName('img')).forEach(img => {
+      img.addEventListener('click', e => {
+        const rootClass = document.getElementsByTagName('html')[0].classList
+        rootClass.add('is-clipped')
+        document.body.appendChild(createElementFromHTML(`
+          <div id="image-modal" class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <img src="${e.target.src}">
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+        `))
+        document.getElementById('image-modal').addEventListener('click', e => {
+          rootClass.remove('is-clipped')
+          document.getElementById('image-modal').outerHTML = ''
+        })
+      })
+    })
   }
 }
 
@@ -260,6 +281,9 @@ main .content {
     display: block;
     margin: 0 auto;
     max-width: 512px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 .button.is-pagination {
