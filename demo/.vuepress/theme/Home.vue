@@ -13,9 +13,9 @@
     </div>
     <div class="container">
       <div class="has-text-centered">
-        <p class="button is-large" v-if="data.actionText && data.actionLink">
-          <router-link :to="actionLink">{{ data.actionText }}</router-link>
-        </p>
+        <router-link :to="data.actionLink" class="button is-large" v-if="data.actionText && data.actionLink">
+          {{ data.actionText }}
+        </router-link>
       </div>
       <section class="section">
         <div class="columns" v-if="data.features && data.features.length">

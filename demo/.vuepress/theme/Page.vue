@@ -13,7 +13,7 @@
       <section v-if="hasFrontMatter">
         <div class="media">
           <div class="media-left is-hidden-touch">
-            <a class="is-hoverable non-blank" :href="$page.path + '#'">
+            <a class="is-hoverable non-blank" href="#">
               <span class="icon is-heading has-text-link">
                 <i :class="$page.frontmatter.icon"></i>
               </span>
@@ -21,7 +21,7 @@
           </div>
           <div class="media-body">
             <div class="title">
-              <a class="non-blank" v-if="!$page.frontmatter.disable_hashtag" :href="$page.path + '#'">#</a> {{ $page.frontmatter.title }}
+              <a class="non-blank" v-if="!$page.frontmatter.disable_hashtag" href="#">#</a> {{ $page.frontmatter.title }}
             </div>
             <div class="subtitle" v-html="$page.frontmatter.description"></div>
           </div>

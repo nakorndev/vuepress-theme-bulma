@@ -204,6 +204,9 @@ code .number {
 .navbar-brand a.navbar-item:hover {
   background-color: $white-bis !important;
 }
+.section {
+  margin-top: 1rem;
+}
 </style>
 <style src="bulma/bulma.sass" lang="scss"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>

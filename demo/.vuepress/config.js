@@ -5,15 +5,6 @@ module.exports = {
   head: [
     ['link', { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity: 'sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin: 'anonymous' }]
   ],
-  displayAllHeaders: false,
-  repo: 'nakorndev/vuepress-theme-bulma',
-  repoLabel: 'Contribute!',
-  docsRepo: 'vuejs/vuepress',
-  docsDir: 'demo',
-  docsBranch: 'master',
-  editLinks: true,
-  editLinkText: 'Edit me!',
-  lastUpdated: 'Last Updated',
   serviceWorker: true,
   markdown: {
     lineNumbers: true,
@@ -32,6 +23,7 @@ module.exports = {
     nav: [
       { text: 'Lorem', link: '/lorem/' },
       { text: 'VuePress', link: 'https://vuepress.vuejs.org/' },
+      { text: 'GitHub', link: 'https://github.com/nakorndev/vuepress-theme-bulma' },
       { text: 'Dropdown', items: [
         { text: 'Google', link: 'https://www.google.com' },
         { text: 'And google!', link: 'https://www.google.com' }
@@ -57,6 +49,15 @@ module.exports = {
           ]
         }
       ]
-    }
+    },
+    displayAllHeaders: false,
+    repo: 'nakorndev/vuepress-theme-bulma',
+    repoLabel: 'Contribute!',
+    docsRepo: 'nakorndev/vuepress-theme-bulma',
+    docsDir: 'demo',
+    docsBranch: 'master',
+    editLinks: true,
+    editLinkText: 'Edit me!',
+    lastUpdated: 'Last Updated',
   },
 }
