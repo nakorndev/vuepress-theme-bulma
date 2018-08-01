@@ -1,0 +1,37 @@
+{
+  "name": "vuepress-theme-bulma",
+  "version": "1.0.0",
+  "description": "Bulma.css theme for VuePress",
+  "keywords": [
+    "vuepress",
+    "theme",
+    "vuepress-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakorndev/vuepress-theme-bulma.git"
+  },
+  "author": "Nakorn Sinpadung (@nakorndev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nakorndev/vuepress-theme-bulma/issues"
+  },
+  "homepage": "https://github.com/nakorndev/vuepress-theme-bulma#readme",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-deflist": "^2.0.3",
+    "markdown-it-footnote": "^3.0.1",
+    "markdown-it-ins": "^2.0.0",
+    "markdown-it-mark": "^2.0.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "tippy.js": "^2.5.4",
+    "vue": "^2.5.16",
+    "vuepress": "^0.12.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3"
+  }
+}
