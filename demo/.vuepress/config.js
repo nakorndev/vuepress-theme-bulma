@@ -26,7 +26,7 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/nakorndev/vuepress-theme-bulma' },
       { text: 'Dropdown', items: [
         { text: 'Google', link: 'https://www.google.com' },
-        { text: 'And google!', link: 'https://www.google.com' }
+        { text: 'And google!', link: 'https://www.google.co.th/' }
       ] }
     ],
     displayAllHeaders: true,

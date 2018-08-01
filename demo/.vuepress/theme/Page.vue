@@ -51,7 +51,6 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
-import tippy from 'tippy.js'
 
 export default {
   props: ['sidebarItems'],
@@ -150,11 +149,6 @@ export default {
         path
       )
     }
-  },
-  mounted () {
-    tippy('abbr[title], span[title], a[title]', {
-      arrow: true
-    })
   }
 }
 
@@ -261,6 +255,11 @@ main .content {
     background-color: #ffff06;
     border-radius: 4px;
     padding: 1px 10px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 512px;
   }
 }
 .button.is-pagination {

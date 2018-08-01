@@ -32,6 +32,7 @@ import Page from './Page.vue'
 import Sidebar from './Sidebar.vue'
 import SWUpdatePopup from './SWUpdatePopup.vue'
 import { resolveSidebarItems } from './util'
+import tippy from 'tippy.js'
 
 export default {
   components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
@@ -39,6 +40,12 @@ export default {
     return {
       isSidebarOpen: false,
       swUpdateEvent: null
+    }
+  },
+
+  watch: {
+    $route (to, from) {
+      this.initTippy()
     }
   },
 
@@ -90,8 +97,8 @@ export default {
   },
 
   mounted () {
+    this.initTippy()
     window.addEventListener('scroll', this.onScroll)
-
     // configure progress bar
     nprogress.configure({ showSpinner: false })
 
@@ -131,6 +138,16 @@ export default {
     },
     onSWUpdated (e) {
       this.swUpdateEvent = e
+    },
+    initTippy () {
+      const selector = document.querySelectorAll('abbr[title], a[title]:not(.is-pagination), span[title]')
+      const paginationLeft = document.querySelector('.is-left.is-pagination')
+      const paginationRight = document.querySelector('.is-right.is-pagination')
+      if (!paginationLeft._tippy && !paginationRight._tippy) {
+        tippy(paginationLeft, { arrow: true, dynamicTitle: true })
+        tippy(paginationRight, { arrow: true, dynamicTitle: true })
+      }
+      tippy(selector, { arrow: true })
     }
   }
 }
