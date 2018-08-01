@@ -16,14 +16,16 @@
       </a>
     </div>
     <div class="navbar-menu" id="navMenu">
+      <AlgoliaSearchBox class="is-hidden-desktop" v-if="isAlgoliaSearch" :options="algolia"/>
+      <SearchBox class="is-hidden-desktop" v-else-if="$site.themeConfig.search !== false"/>
       <NavLinks/>
       <Sidebar :items="sidebarItems">
         <slot name="sidebar-top" slot="top"/>
         <slot name="sidebar-bottom" slot="bottom"/>
       </Sidebar>
       <div class="navbar-end">
-        <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia"/>
-        <SearchBox v-else-if="$site.themeConfig.search !== false"/>
+        <AlgoliaSearchBox class="is-hidden-touch" v-if="isAlgoliaSearch" :options="algolia"/>
+        <SearchBox class="is-hidden-touch" v-else-if="$site.themeConfig.search !== false"/>
         <a v-if="isExternal(item.link)"
           v-for="item in userLinks"
           :key="item.link"
@@ -156,7 +158,7 @@ export default {
           const $target = document.getElementById(target);
           el.classList.toggle('is-active');
           $target.classList.toggle('is-active');
-          document.getElementsByTagName('html')[0].classList.toggle('is-clipped is-blackdrop')
+          document.getElementsByTagName('html')[0].classList.toggle('is-clipped')
         });
       });
     }

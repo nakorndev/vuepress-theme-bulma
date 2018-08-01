@@ -90,5 +90,8 @@ function resolveOpenGroupIndex (route, items) {
   .menu {
     margin-top: 1rem;
   }
+  .menu-list {
+    margin-bottom: 0;
+  }
 }
 </style>
