@@ -21,9 +21,9 @@ module.exports = {
   themeConfig: {
     logo: 'https://vuepress.vuejs.org/hero.png',
     nav: [
-      { text: 'Lorem', link: '/lorem/' },
+      { icon: 'fas fa-book', iconClass: 'has-text-danger', text: 'Lorem', link: '/lorem/' },
       { text: 'VuePress', link: 'https://vuepress.vuejs.org/' },
-      { text: 'GitHub', link: 'https://github.com/nakorndev/vuepress-theme-bulma' },
+      { icon: 'fab fa-lg fa-github', iconClass: 'is-medium', text: 'GitHub', link: 'https://github.com/nakorndev/vuepress-theme-bulma' },
       { text: 'Dropdown', items: [
         { text: 'Google', link: 'https://www.google.com' },
         { text: 'And google!', link: 'https://www.google.co.th/' }
@@ -35,6 +35,8 @@ module.exports = {
       '/lorem/': [
         {
           title: 'Lorem',
+          icon: 'fas fa-star',
+          iconClass: 'has-background-success has-text-warning button is-rounded',
           collapsable: true,
           children: [
             '',

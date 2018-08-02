@@ -34,7 +34,8 @@
           :target="isMailto(link(item)) || isTel(link(item)) ? null : '_blank'"
           :rel="isMailto(link(item)) || isTel(link(item)) ? null : 'noopener noreferrer'"
         >
-          {{ item.text }}
+          <span v-if="item.icon" class="icon" :class="item.iconClass"><i :class="item.icon"></i></span>
+          <span>{{ item.text }}</span>
           <OutboundLink/>
         </a>
         <a v-if="repoLink"

@@ -209,6 +209,8 @@ function resolveItem (item, pages, base, isNested) {
     return {
       type: 'group',
       title: item.title,
+      icon: item.icon,
+      iconClass: item.iconClass,
       children: children.map(child => resolveItem(child, pages, base, true)),
       collapsable: item.collapsable !== false
     }

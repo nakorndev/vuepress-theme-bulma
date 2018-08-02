@@ -1,6 +1,7 @@
 <template>
   <div class="sidebar-group" :class="{ first, collapsable }">
     <p class="sidebar-heading" :class="{ open }" @click="$emit('toggle')">
+      <span v-if="item.icon" class="icon" :class="item.iconClass"><i :class="item.icon"></i></span>
       <span>{{ item.title }}</span>
       <span class="arrow"
         v-if="collapsable"

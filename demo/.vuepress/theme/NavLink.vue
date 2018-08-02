@@ -4,7 +4,10 @@
     :to="link"
     v-if="!isExternal(link)"
     :exact="exact"
-  >{{ item.text }}</router-link>
+  >
+    <span v-if="item.icon" class="icon" :class="item.iconClass"><i :class="item.icon"></i></span>
+    <span>{{ item.text }}</span>
+  </router-link>
 </template>
 
 <script>
