@@ -4,4 +4,4 @@
 
 [https://nakorndev.github.io/vuepress-theme-bulma/](https://nakorndev.github.io/vuepress-theme-bulma/)
 
-See more info of theme at `/demo/.vuepress/theme`
+See more info of theme at `/demo/.vuepress/theme` for what I use `npm publish`
