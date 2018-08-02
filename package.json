@@ -30,12 +30,9 @@
     "markdown-it-mark": "^2.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "tippy.js": "^2.5.4",
-    "vue": "^2.5.16",
-    "vuepress": "^0.12.0"
-  },
-  "devDependencies": {
     "node-sass": "^4.9.2",
-    "sass-loader": "^7.0.3"
+    "sass-loader": "^7.1.0",
+    "vue": "^2.5.17",
+    "vuepress": "^0.12.0"
   }
 }

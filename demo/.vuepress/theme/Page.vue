@@ -211,7 +211,6 @@ function find (page, items, offset) {
 }
 </script>
 
-<style src="tippy.js/dist/tippy.css"></style>
 <style lang="scss">
 @import "~bulma/sass/utilities/initial-variables";
 @media screen and (min-width: $desktop) {

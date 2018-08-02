@@ -33,7 +33,6 @@ import Custom from './Custom.vue'
 import Sidebar from './Sidebar.vue'
 import SWUpdatePopup from './SWUpdatePopup.vue'
 import { resolveSidebarItems } from './util'
-import tippy from 'tippy.js'
 
 export default {
   components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, Custom },
