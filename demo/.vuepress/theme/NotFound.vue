@@ -1,26 +1,27 @@
 <template>
-  <div class="theme-container">
-    <div class="content">
-      <h1>404</h1>
-      <blockquote>{{ getMsg() }}</blockquote>
-      <router-link to="/">Take me home.</router-link>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          <i class="fas fa-exclamation-triangle has-text-warning"></i> 404
+          <small class="has-text-grey">Nothing here!</small>
+        </h1>
+        <h2 class="subtitle">
+          <router-link class="button is-large" to="/">Return home</router-link>
+        </h2>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script>
-const msgs = [
-  `There's nothing here.`,
-  `How did we get here?`,
-  `That's a Four-Oh-Four.`,
-  `Looks like we've got some broken links.`
-]
-
-export default {
-  methods: {
-    getMsg () {
-      return msgs[Math.floor(Math.random() * msgs.length)]
-    }
+<style lang="scss">
+h1.title {
+  padding-bottom: 3rem;
+  font-size: 4rem;
+  small {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
   }
 }
-</script>
+</style>
