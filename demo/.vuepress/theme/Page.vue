@@ -33,11 +33,9 @@
         <router-link v-if="prev" :to="prev.path" class="button is-hidden-touch is-text is-none-decoration is-left is-pagination has-text-link" :title="prev.title || prev.path">
           <i class="fas fa-chevron-left"></i>
         </router-link>
-        <button v-else class="button is-hidden-touch is-text is-none-decoration is-left is-pagination has-text-link" disabled><i class="fas fa-chevron-left"></i></button>
         <router-link v-if="next" :to="next.path" class="button is-hidden-touch is-text is-none-decoration is-right is-pagination has-text-link" :title="next.title || next.path">
           <i class="fas fa-chevron-right"></i>
         </router-link>
-        <button v-else class="button is-hidden-touch is-text is-none-decoration is-right is-pagination has-text-link" disabled><i class="fas fa-chevron-right"></i></button>
       </div>
       <hr>
       <div class="has-text-right" v-if="lastUpdated">
@@ -148,28 +146,42 @@ export default {
         (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
         path
       )
+    },
+    initImageModal () {
+      Array.from(document.getElementById('content').getElementsByTagName('img')).forEach(img => {
+        img.addEventListener('click', this.eventImageModal)
+      })
+    },
+    removeImageModalEvent () {
+      Array.from(document.getElementById('content').getElementsByTagName('img')).forEach(img => {
+        img.removeEventListener('click', this.eventImageModal)
+      })
+    },
+    eventImageModal (e) {
+      const rootClass = document.getElementsByTagName('html')[0].classList
+      rootClass.add('is-clipped')
+      document.body.appendChild(createElementFromHTML(`
+        <div id="image-modal" class="modal is-active">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <img src="${e.target.src}">
+          </div>
+          <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+      `))
+      document.getElementById('image-modal').addEventListener('click', e => {
+        rootClass.remove('is-clipped')
+        document.getElementById('image-modal').outerHTML = ''
+      })
+    }
+  },
+  watch: {
+    $route() {
+      this.initImageModal()
     }
   },
   mounted () {
-    Array.from(document.getElementById('content').getElementsByTagName('img')).forEach(img => {
-      img.addEventListener('click', e => {
-        const rootClass = document.getElementsByTagName('html')[0].classList
-        rootClass.add('is-clipped')
-        document.body.appendChild(createElementFromHTML(`
-          <div id="image-modal" class="modal is-active">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <img src="${e.target.src}">
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>
-        `))
-        document.getElementById('image-modal').addEventListener('click', e => {
-          rootClass.remove('is-clipped')
-          document.getElementById('image-modal').outerHTML = ''
-        })
-      })
-    })
+    this.initImageModal()
   }
 }
 
@@ -284,6 +296,12 @@ main .content {
     &:hover {
       cursor: pointer;
     }
+  }
+  .footnote-ref :target::before {
+    content: "";
+    display: inline-block;
+    height: 4.5rem;
+    margin-top: -4.5rem;
   }
 }
 .button.is-pagination {

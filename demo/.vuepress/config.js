@@ -45,7 +45,8 @@ module.exports = {
             'custom-containers',
             'code-blocks',
             'markdown-it',
-            'markdown-vuepress'
+            'markdown-vuepress',
+            'custom-layout'
           ]
         }
       ]
