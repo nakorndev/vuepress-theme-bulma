@@ -31,28 +31,34 @@ module.exports = {
     ],
     displayAllHeaders: true,
     serviceWorker: true,
-    sidebar: {
-      '/lorem/': [
-        {
-          title: 'Lorem',
-          icon: 'fas fa-star',
-          iconClass: 'has-background-success has-text-warning button is-rounded',
-          collapsable: true,
-          children: [
-            '',
-            'article',
-            'frontmatter',
-            'table',
-            'emoji',
-            'custom-containers',
-            'code-blocks',
-            'markdown-it',
-            'markdown-vuepress',
-            'custom-layout'
-          ]
-        }
-      ]
-    },
+    sidebar: [
+      {
+        title: 'Lorem',
+        icon: 'fas fa-star',
+        iconClass: 'has-background-success has-text-warning button is-rounded',
+        collapsable: true,
+        children: [
+          '/lorem/',
+          '/lorem/article',
+          '/lorem/frontmatter',
+          '/lorem/table',
+          '/lorem/emoji',
+          '/lorem/custom-containers',
+          '/lorem/code-blocks',
+          '/lorem/markdown-it',
+          '/lorem/markdown-vuepress',
+          '/lorem/custom-layout'
+        ]
+      },
+      {
+        title: 'Lorem2',
+        collapsable: true,
+        children: [
+          '/lorem2/',
+          '/lorem2/test'
+        ]
+      }
+    ],
     displayAllHeaders: false,
     repo: 'nakorndev/vuepress-theme-bulma',
     repoLabel: 'Contribute!',
