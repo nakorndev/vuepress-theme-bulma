@@ -208,7 +208,7 @@ code .number {
   margin-top: 1rem;
 }
 </style>
-<style src="bulma/bulma.sass" lang="scss"></style>
+<style src="bulma/bulma.sass" lang="sass"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="stylus">
