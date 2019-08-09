@@ -21,7 +21,7 @@
           </div>
           <div class="media-body">
             <div class="title">
-              <a class="non-blank" v-if="!$page.frontmatter.disable_hashtag" href="#">#</a> {{ $page.frontmatter.title }}
+              <a class="non-blank" href="#">#</a> {{ $page.frontmatter.title }}
             </div>
             <div class="subtitle" v-html="$page.frontmatter.description"></div>
           </div>
@@ -146,42 +146,7 @@ export default {
         (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
         path
       )
-    },
-    initImageModal () {
-      Array.from(document.getElementById('content').getElementsByTagName('img')).forEach(img => {
-        img.addEventListener('click', this.eventImageModal)
-      })
-    },
-    removeImageModalEvent () {
-      Array.from(document.getElementById('content').getElementsByTagName('img')).forEach(img => {
-        img.removeEventListener('click', this.eventImageModal)
-      })
-    },
-    eventImageModal (e) {
-      const rootClass = document.getElementsByTagName('html')[0].classList
-      rootClass.add('is-clipped')
-      document.body.appendChild(createElementFromHTML(`
-        <div id="image-modal" class="modal is-active">
-          <div class="modal-background"></div>
-          <div class="modal-content">
-            <img src="${e.target.src}">
-          </div>
-          <button class="modal-close is-large" aria-label="close"></button>
-        </div>
-      `))
-      document.getElementById('image-modal').addEventListener('click', e => {
-        rootClass.remove('is-clipped')
-        document.getElementById('image-modal').outerHTML = ''
-      })
     }
-  },
-  watch: {
-    $route() {
-      this.initImageModal()
-    }
-  },
-  mounted () {
-    this.initImageModal()
   }
 }
 
@@ -292,9 +257,6 @@ main .content {
     display: block;
     margin: 0 auto;
     max-width: 512px;
-    &:hover {
-      cursor: pointer;
-    }
   }
   .footnote-ref :target::before {
     content: "";

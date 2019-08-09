@@ -1,9 +1,9 @@
 module.exports = {
   title: 'vuepress-theme-bulma',
-  description: 'Bulma.css theme for VuePress',
+  description: 'A pure Bulma.css theme for VuePress',
   base: '/vuepress-theme-bulma/',
   head: [
-    ['link', { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity: 'sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin: 'anonymous' }]
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' }]
   ],
   serviceWorker: true,
   markdown: {
@@ -21,33 +21,34 @@ module.exports = {
   themeConfig: {
     logo: 'https://vuepress.vuejs.org/hero.png',
     nav: [
-      { icon: 'fas fa-book', iconClass: 'has-text-danger', text: 'Lorem', link: '/lorem/' },
+      { icon: 'fas fa-book', iconClass: 'has-text-danger', text: 'Documentation', link: '/docs/' },
       { text: 'VuePress', link: 'https://vuepress.vuejs.org/' },
       { icon: 'fab fa-lg fa-github', iconClass: 'is-medium', text: 'GitHub', link: 'https://github.com/nakorndev/vuepress-theme-bulma' },
       { text: 'Dropdown', items: [
         { text: 'Google', link: 'https://www.google.com' },
-        { text: 'And google!', link: 'https://www.google.co.th/' }
+        { text: 'And yet another google!', link: 'https://www.google.co.th/' }
       ] }
     ],
     displayAllHeaders: true,
     serviceWorker: true,
     sidebar: [
       {
-        title: 'Lorem',
+        title: 'Documentation',
         icon: 'fas fa-star',
-        iconClass: 'has-background-success has-text-warning button is-rounded',
+        iconClass: 'has-text-warning',
         collapsable: true,
         children: [
-          '/lorem/',
-          '/lorem/article',
-          '/lorem/frontmatter',
-          '/lorem/table',
-          '/lorem/emoji',
-          '/lorem/custom-containers',
-          '/lorem/code-blocks',
-          '/lorem/markdown-it',
-          '/lorem/markdown-vuepress',
-          '/lorem/custom-layout'
+          '/docs/',
+          '/docs/table-of-contents',
+          '/docs/front-matters',
+          '/docs/pictures',
+          '/docs/tables',
+          '/docs/emoji',
+          '/docs/custom-containers',
+          '/docs/code-blocks',
+          '/docs/markdown-it',
+          '/docs/markdown-vuepress',
+          '/docs/custom-layout'
         ]
       },
       {

@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-group" :class="{ first, collapsable }">
     <p class="sidebar-heading" :class="{ open }" @click="$emit('toggle')">
-      <span v-if="item.icon" class="icon" :class="item.iconClass"><i :class="item.icon"></i></span>
+      <span v-if="item.icon" class="icon sidebar-link-icon" :class="item.iconClass"><i :class="item.icon"></i></span>
       <span>{{ item.title }}</span>
       <span class="arrow"
         v-if="collapsable"
@@ -55,6 +55,9 @@ export default {
     left 0.5em
   &:.open .arrow
     top -0.18em
+
+.sidebar-link-icon
+  margin-right: 0.35rem
 
 .sidebar-group-items
   transition height .1s ease-out

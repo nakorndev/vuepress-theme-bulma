@@ -1,9 +1,4 @@
----
-title: 😉 Article
-description: Saepe et molestiae quis itaque. <strong>Be strong!</strong>
-icon: fas fa-star
-disable_hashtag: true
----
+# Table of Content
 
 [[toc]]
 

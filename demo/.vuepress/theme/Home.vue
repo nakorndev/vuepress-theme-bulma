@@ -13,7 +13,7 @@
     </div>
     <div class="container">
       <div class="has-text-centered">
-        <router-link :to="data.actionLink" class="button is-large" v-if="data.actionText && data.actionLink">
+        <router-link :to="data.actionLink" class="button is-large is-outlined is-link" v-if="data.actionText && data.actionLink">
           {{ data.actionText }}
         </router-link>
       </div>
