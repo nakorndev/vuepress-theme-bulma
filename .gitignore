@@ -1,5 +1,6 @@
 .DS_Store
-*/node_modules/**
+node_modules
 *.log
 .temp
 demo/.vuepress/dist
+demo/.vuepress/theme/package.json
