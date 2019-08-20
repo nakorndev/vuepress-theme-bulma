@@ -12,6 +12,10 @@
 npm install --save vuepress-theme-bulma
 ```
 
+## Buefy Implements
+
+To use buefy see at branch `buefy-demo` and how to implements see at commit [c96f33fdaa2d3f47291d3cd818da33a674791581](https://github.com/nakorndev/vuepress-theme-bulma/commit/c96f33fdaa2d3f47291d3cd818da33a674791581)
+
 ## Configuration
 
 See example at [demo/.vuepress/config.js](https://github.com/nakorndev/vuepress-theme-bulma/blob/master/demo/.vuepress/config.js)
