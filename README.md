@@ -2,8 +2,9 @@
 
 > Bulma.css theme for VuePress
 
-Demo: [https://nakorndev.github.io/vuepress-theme-bulma/](https://nakorndev.github.io/vuepress-theme-bulma/)
-NPM: [https://www.npmjs.com/package/vuepress-theme-bulma](https://www.npmjs.com/package/vuepress-theme-bulma)
+- Demo: [https://nakorndev.github.io/vuepress-theme-bulma/](https://nakorndev.github.io/vuepress-theme-bulma/)
+- npm: [https://www.npmjs.com/package/vuepress-theme-bulma](https://www.npmjs.com/package/vuepress-theme-bulma)
+- Demo for Buefy: [https://github.com/nakorndev/vuepress-theme-bulma/tree/buefy-demo](https://github.com/nakorndev/vuepress-theme-bulma/tree/buefy-demo)
 
 ## Installation
 
