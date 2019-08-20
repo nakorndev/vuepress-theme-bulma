@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/nakorndev/vuepress-theme-bulma#readme",
   "dependencies": {
+    "buefy": "^0.8.2",
     "bulma": "^0.7.1",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-deflist": "^2.0.3",

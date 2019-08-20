@@ -48,7 +48,8 @@ module.exports = {
           '/docs/code-blocks',
           '/docs/markdown-it',
           '/docs/markdown-vuepress',
-          '/docs/custom-layout'
+          '/docs/custom-layout',
+          '/docs/buefy-demo'
         ]
       },
       {
